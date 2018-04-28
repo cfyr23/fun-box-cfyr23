@@ -1,0 +1,17 @@
+doctype html
+include products-list
+include mixins
+html(lang="ru-RU")
+	head
+		title Тестовое задание
+		meta(name="viewport", content="width=device-width")
+		link(rel="stylesheet", type="text/css", href="/assets/css/style.css")
+	body
+		.content.foods.flex.flex-column.flex-align-center.flex-justify-center
+			h1 Ты сегодня покормил кота?
+			.container.foods__wrapper.flex.flex-align-center.flex-justify-between
+				for product in productList
+					+product-card(product)
+
+		script(src="https://code.jquery.com/jquery-3.3.1.min.js")
+		script(src="/assets/js/main.js")

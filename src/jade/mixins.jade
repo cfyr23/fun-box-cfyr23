@@ -1,0 +1,22 @@
+mixin product-card(product)
+	if product.disabled == 'true'
+		- var bodys = ['product_disabled']
+	else
+	.product(class=bodys)
+		.product__outer
+			.product__inner
+				p.product__title Сказочное заморское яство
+				p.product__cancel.hidden Котэ не одобряет?
+				p.product__name Нямушка
+					span.product__sort= product.sort
+				ul.unmarked
+					each item in product.description
+						li.product__description
+							p!= item
+				.weight.flex.flex-align-center.flex-justify-center
+					p.weight__value= product.weight
+						span.weight__measure кг
+		p.product__action Чего сидишь? Порадуй котэ, 
+			span.product__buy купи.
+		p.product__action.product__action_selected.hidden= product.selected_text
+		p.product__action.product__action_disabled.hidden Печалька, #{product.sort} закончился.
